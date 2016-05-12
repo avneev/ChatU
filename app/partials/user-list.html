@@ -1,9 +1,16 @@
 <ul class="user-list">
-	<li ng-repeat="user in users">
-		<a href="#/profile/{{user.username}}">
-			<img ng-src="{{user.photo}}" />{{user.firstName}}
-
+	<li ng-repeat="item in list" ng-if="item.userName">
+		<a href="#/profile/{{item.userName}}">
+			<img ng-src="{{item.photo}}" />{{item.firstName}} 
 		</a>
-		<a href=""> + </a>		
+		<a href=""> + </a>	
+		{{item.dob | birthdayReminder}}	
+	</li>
+
+	<li ng-repeat="item in list" ng-if="item.groupName" ng-class="{'user' : !item.groupName, 'group' : item.groupName}">
+		<a href="#/group/{{item.groupName}}">
+			<img ng-src="{{item.photo}}" />{{item.groupName}} 
+		</a>
+		<a href=""> + </a>	
 	</li>
 </ul>

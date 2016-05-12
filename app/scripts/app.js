@@ -17,7 +17,8 @@ var chatApplicationApp = angular
     'ngSanitize',
     'ngTouch',
     'chatApplicationApp.dashboard',
-    'chatApplicationApp.profile'
+    'chatApplicationApp.profile',
+    'chatApplicationApp.group'
   ]);
 
   chatApplicationApp.config(['$routeProvider', function($routeProvider) {
@@ -42,8 +43,18 @@ var chatApplicationApp = angular
       return {
         restrict : 'EA',
         templateUrl :  'partials/user-list.html',
-        link : function(scope, element, attrs){
-          scope.birthday = 1;
+        scope : {
+          list : '='
         }
       }
   }]);
+
+  chatApplicationApp.filter('birthdayReminder',[function() {
+    return function(input) {
+      var dob = new Date(input);
+      var today = new Date();
+      if (dob.getDate() === today.getDate()) {
+        return "Today is his Birthday"
+      }
+    };
+}])
