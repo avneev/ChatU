@@ -1,0 +1,37 @@
+{
+ "users": 
+	[
+		{ 
+		  "firstName" : "Chaitra",
+		  "lastName" : "Naik",
+		  "username" : "chaitrasaurav",
+		  "dob" : "03-19-1991",
+		  "photo" : "images/users/1.png",
+		  "email" : "chaitranaiksaurav@gmail.com"
+		},
+		{ 
+		  "firstName" : "Dale",
+		  "lastName" : "Steyn",
+		  "username" : "dalesteyn",
+		  "dob" : "07-08-1983",
+		  "photo" : "images/users/2.png",
+		  "email" : "dalesteyn@gmail.com"
+		},
+		{ 
+		  "firstName" : "Anubhav",
+		  "lastName" : "Vishwakarma",
+		  "username" : "anubhav",
+		  "dob" : "10-27-1988",
+		  "photo" : "images/users/3.png",
+		  "email" : "anubhav@gmail.com"		  
+		},
+		{ 
+		  "firstName" : "Ashraf",
+		  "lastName" : "aftab",
+		  "username" : "ashraf",
+		  "dob" : "05-11-2015",
+		  "photo" : "images/users/4.png",
+		  "email" : "ashraf@gmail.com"
+		}
+	]
+}

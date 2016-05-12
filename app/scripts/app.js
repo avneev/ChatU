@@ -8,28 +8,42 @@
  *
  * Main module of the application.
  */
-angular
+var chatApplicationApp = angular
   .module('chatApplicationApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
-      })
-      .otherwise({
-        redirectTo: '/'
+    'ngTouch',
+    'chatApplicationApp.dashboard',
+    'chatApplicationApp.profile'
+  ]);
+
+  chatApplicationApp.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.otherwise({redirectTo: '/dashboard'});
+  }]);
+
+  chatApplicationApp.service('UserList', ['$http', '$q', function($http, $q){
+    var deferred = $q.defer();
+    this.getUsers = function(){
+      $http.get('data/users.json')
+        .success(function(data) {
+          deferred.resolve(data);
+        })
+        .error(function(data,status,error,config){
+          deferred.reject(error);
       });
-  });
+      return deferred.promise;
+    };
+  }]);
+
+  chatApplicationApp.directive('displayUserList',['UserList', function(UserList) {
+      return {
+        restrict : 'EA',
+        templateUrl :  'partials/user-list.html',
+        link : function(scope, element, attrs){
+          scope.birthday = 1;
+        }
+      }
+  }]);
