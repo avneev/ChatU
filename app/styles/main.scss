@@ -3,6 +3,9 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+$font-opensans: 'Open Sans', sans-serif;
+//custom fonts
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -12,20 +15,19 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 
 body {
   padding: 0;
+  font-family: $font-opensans;
+  font-size:15px;
+  line-height:1.5;
+  color:#3B3A35;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+p{
+  margin:0;
 }
+/* Everything but the jumbotron gets side spacing for mobile first views */
 
 /* Custom page header */
 .header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
 
   /* Make the masthead heading the same height as the navigation */
   h3 {
@@ -36,11 +38,57 @@ body {
   }
 }
 
+//navigation
+.navbar-default{
+  background-color: #3B3A35;
+  border:none;
+  border-radius:0;
+  .navbar-nav{
+    li{
+        margin-right:10px;
+      a{
+        color:#ECDFBD;
+        font-size:17px;
+         &:hover, &:visited, &:focus {
+            color:#ECDFBD;
+            background-color:#20457C;
+         }
+      }
+    }
+  }
+}
+
+//user list
+.user-list{
+  list-style-type: none;
+  li{
+    border-bottom:1px solid #3B3A35;
+    width:100%;
+    a{
+      display: inline-block;      
+      margin-bottom:4px;
+      padding:5px;
+      width:90%;
+      img{
+        width:35px;
+      }
+      &:last-child{
+        width:8%;
+        padding: 12px 14px 0 0;
+      }
+    }
+  }
+}
+
 /* Custom page footer */
 .footer {
-  padding-top: 19px;
+  padding: 20px 0;
   color: #777;
   border-top: 1px solid #e5e5e5;
+  background-color: #3B3A35;
+  color:#ECDFBD;
+  font-size:16px;
+  text-align:center;
 }
 
 .container-narrow > hr {
@@ -68,7 +116,7 @@ body {
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     max-width: 730px;
   }

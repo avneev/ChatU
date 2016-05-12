@@ -1,0 +1,9 @@
+<ul class="user-list">
+	<li ng-repeat="user in users">
+		<a href="#/profile/{{user.username}}">
+			<img ng-src="{{user.photo}}" />{{user.firstName}}
+
+		</a>
+		<a href=""> + </a>		
+	</li>
+</ul>

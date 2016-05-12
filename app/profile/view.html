@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-sm-4">
+		<display-user-list></display-user-list>
+	</div>
+	<div class="col-sm-8">
+		<p>Name : {{userDetails.firstName}} {{userDetails.lastName}}</p>
+		<p>Username : {{userDetails.username}}</p>
+		<p>DOB : {{userDetails.dob}} ({{age}} Year<span ng-if="age > 1">s</span>)</p>
+		<p><img ng-src="{{userDetails.photo}}" /></p>
+		<p>Email : {{userDetails.email}}</p>
+	</div>
+</div>
+	
